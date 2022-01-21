@@ -1,0 +1,28 @@
+1) Клонируем репозиторий
+
+2) Запускаем\собираем по докер-файлу
+
+Чтобы запустить проект в режиме скрипта - указываем в аргументах "type=script"
+# docker build --build-arg type=script --tag backend-test-task .
+(для редактирования входных параметров нужно менять файл script.sh)
+
+Чтобы запустить проект в режиме веб-сервиса - указываем в аргументах "type=service"
+# docker build --build-arg type=service --tag backend-test-task .
+
+Затем запускаем:
+# docker run backend-test-task
+
+3) Вот пример запроса для приложения в контейнере:
+
+http://172.17.0.2:5000/parser?url=habr&number=646159&width=100&save_links=true&show_time=false
+
+или так для локалхоста
+
+http://127.0.0.1:5000/parser?url=habr&number=646159&width=100&save_links=true&show_time=false
+
+Где:
+    url = сайт
+    number = номер поста на хабре
+    width = ширина строки
+    save_links = сохранять картинки или нет
+    show_time = показывать в время выполнения или нет(вывод в терминале)
